@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Part-Aware Bottom-Up Group Reasoning for Fine-Grained Social Interaction Detection">
+  <meta name="keywords" content="Fine-Grained Social Interaction Detection, Nonverbal Interaction Detection">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PABU</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!--<link rel="icon" href="./static/images/favicon.svg">-->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">Part-Aware Bottom-Up Group Reasoning for Fine-Grained Social Interaction Detection</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://dk-kim.github.io/">Dongkeun Kim</a>,</span>
+            <span class="author-block">
+              <a href="https://cvlab.postech.ac.kr/~mcho/">Minsu Cho</a>,
+            </span>
+            <span class="author-block">
+              <a href="https://suhakwak.github.io/">Suha Kwak</a>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Pohang University of Science and Technology (POSTECH)</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2312.02878"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/dk-kim/CAFE_codebase"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Café Dataset</h2>
+        <table class="results">
+          <tr class="item">
+              <td class="item-img">
+                  <video muted autoplay loop width="480">
+                      <source src="static/videos/PlaceA_reduced.mp4" type="video/mp4">
+                  </video>
+              </td>
+              <td>
+                  <video muted autoplay loop width="480">
+                      <source src="static/videos/PlaceB_reduced.mp4" type="video/mp4">
+                  </video>
+              </td>
+          </tr>
+          <tr class="legend"><td class="is-size-5 has-text-centered"><p class="mgb-4">Place A</p></td><td class="is-size-5 has-text-centered"><p class="mb-4">Place B</p></td></tr>
+          <tr><td class="space" colspan="2"></td></tr>
+          <tr class="item">
+            <td class="item-img">
+                <video muted autoplay loop width="480">
+                    <source src="static/videos/PlaceC_reduced.mp4" type="video/mp4">
+                </video>
+            </td>
+            <td>
+              <video muted autoplay loop width="480">
+                  <source src="static/videos/PlaceD_reduced.mp4" type="video/mp4">
+              </video>
+          </td>
+          </tr>
+          <tr class="legend"><td class="is-size-5 has-text-centered"><p class="mb-4">Place C</p></td><td class="is-size-5 has-text-centered"><p class="mb-4">Place D</p></td></tr>
+          <tr class="item">
+              <td class="item-img">
+                <video muted autoplay loop width="480">
+                    <source src="static/videos/PlaceE_reduced.mp4" type="video/mp4">
+                </video>
+            </td>
+            <td>
+                <video muted autoplay loop width="480">
+                    <source src="static/videos/PlaceF_reduced.mp4" type="video/mp4">
+                </video>
+            </td>
+          </tr>
+          <tr class="legend"><td class="is-size-5 has-text-centered"><p class="mb-4">Place E</p></td><td class="is-size-5 has-text-centered"><p class="mb-4">Place F</p></td></tr>
+        </table>
+        <p class="has-text-left">Café dataset is taken at six different cafes to capture realistic daily activities, 
+          and each of them exhibits multiple non-singleton groups performing their own activities as well as outliers, 
+          presenting more practical evaluation scenarios for GAD.</p>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Social interactions often emerge from subtle, fine-grained cues such as facial expressions, gaze, and gestures.
+            However, existing methods for social interaction detection overlook such nuanced cues and primarily rely on holistic representations of individuals. 
+            Moreover, they directly detect social groups without explicitly modeling the underlying interactions between individuals.
+            These drawbacks limit their ability to capture localized social signals and introduce ambiguity when group configurations should be inferred from social interactions grounded in nuanced cues.
+          </p>
+          <p>
+            In this work, we propose a part-aware bottom-up group reasoning framework for fine-grained social interaction detection. 
+            The proposed method infers social groups and their interactions using body part features and their interpersonal relations. 
+            Our model first detects individuals and enhances their features using part-aware cues, and then infers group configuration by associating individuals via similarity-based reasoning, which considers not only spatial relations but also subtle social cues that signal interactions, leading to more accurate group inference. 
+          </p>
+          <p>
+            Experiments on the NVI dataset demonstrate that our method outperforms prior methods, achieving the new state of the art.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+</section>
+
+
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Dataset Overview</h2>
+        <div class="column is-vcentered">
+          <img src="static/images/dataset_overview.png" class="interpolation-image"/>
+        </div>
+        <p class="mt-0 mb-4 has-text-centered">Examples of videos in Café. The videos were taken at six different places and four cameras with different viewpoints.</p>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h3 class="title is-4">Dataset Characteristics</h3>
+        <div class="column is-vcentered">
+          <img src="static/images/dataset_table.png" class="interpolation-image"/>
+        </div>
+        <p class="mt-0 mb-4 has-text-centered">Comparison between Café and other datasets for group activity understanding.</p>
+      </div>
+    </div>
+    <h3 class="title is-4">Dataset Statistics</h3>
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content">
+          <p class="has-text-centered">(a)</p>
+          <img src="static/images/dataset_stat1.png" class="interpolation-image"/>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <p class="has-text-centered">(b)</p>
+          <img src="static/images/dataset_stat2.png" class="interpolation-image"/>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <p class="has-text-centered">(c)</p>
+          <img src="static/images/dataset_stat3.png" class="interpolation-image"/>
+        </div>
+      </div>
+    </div>
+    <p class="mt-0 mb-4 has-text-left">(a) Group population versus group size per activity class. 
+      (b) Distribution of the number of actors in each video frame.
+      (c) Comparison between Café and the other datasets in terms of group size.</p>
+  </div>
+</section> -->
+
+
+<!-- <section>
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Proposed Model</h2>
+        <div class="column is-vcentered">
+          <img src="static/images/overall_architecture.png" class="interpolation-image"/>
+        </div>
+        <p class="mt-0 mb-4">(Left) Overall architecture of our model. (Right) Detailed architecture of the Grouping Transformer.</p>
+      </div>
+    </div>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Experiments</h2>
+        <div class="column is-vcentered">
+          <img src="static/images/experiments_cafe.png" class="interpolation-image"/>
+        </div>
+        <p class="mt-0 mb-4 has-text-left">Quantitative results on Café. The subscripts of Group mAP mean Group IoU thresholds. 
+          We mark the best and the second-best performance in bold and underline, respectively.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+          <div class="column is-full-width">
+              <h2 class="title is-3">Qualitative Results</h2>
+              <p class="mt-0 mb-4 has-text-left">Qualitative examples of prediction by our model on Café. Boxes with the same color belong to the same group.
+                All outliers are marked with teal color. Each color represents different group activity class (<i>queueing</i>: indigo, <i>ordering</i>: red, <i>eating</i>: orange, 
+                <i>working</i>: yellow, <i>fighting</i>: violet, <i>selfie</i>: pink, <i>outlier</i>: teal).
+              </p>
+              <table class="results">
+                <tr class="legend"><td class="is-size-5 has-text-centered">Input frames</td><td class="is-size-5 has-text-centered">Ours</td><td class="is-size-5 has-text-centered">Ground-truth</td></tr>
+                <tr class="item">
+                    <td class="item-img">
+                        <img src="static/figures/input_1.gif" class="img" width="360">
+                    </td>
+                    <td class="item-img">
+                        <img src="static/figures/pred_1.gif" class="img" width="360">
+                    </td>
+                    <td class="item-img">
+                        <img src="static/figures/gt_1.gif" class="img" width="360">
+                    </td>
+                </tr>
+                <tr class="item">
+                    <td class="item-img">
+                        <img src="static/figures/input_3.gif" class="img" width="360">
+                    </td>
+                    <td class="item-img">
+                        <img src="static/figures/pred_3.gif" class="img" width="360">
+                    </td>
+                    <td class="item-img">
+                        <img src="static/figures/gt_3.gif" class="img" width="360">
+                    </td>
+                </tr>
+                <tr class="item">
+                    <td class="item-img">
+                        <img src="static/figures/input_5.gif" class="img" width="360">
+                    </td>
+                    <td class="item-img">
+                        <img src="static/figures/pred_5.gif" class="img" width="360">
+                    </td>
+                    <td class="item-img">
+                        <img src="static/figures/gt_5.gif" class="img" width="360">
+                    </td>
+                </tr>
+                <tr class="item">
+                    <td class="item-img">
+                        <img src="static/figures/input_6.gif" class="img" width="360">
+                    </td>
+                    <td class="item-img">
+                        <img src="static/figures/pred_6.gif" class="img" width="360">
+                    </td>
+                    <td class="item-img">
+                        <img src="static/figures/gt_6.gif" class="img" width="360">
+                    </td>
+                </tr>
+                <tr class="item">
+                    <td class="item-img">
+                        <img src="static/figures/input_4.gif" class="img" width="360">
+                    </td>
+                    <td class="item-img">
+                        <img src="static/figures/pred_4.gif" class="img" width="360">
+                    </td>
+                    <td class="item-img">
+                        <img src="static/figures/gt_4.gif" class="img" width="360">
+                    </td>
+                </tr>
+                <tr class="item">
+                    <td class="item-img">
+                        <img src="static/figures/input_2.gif" class="img" width="360">
+                    </td>
+                    <td class="item-img">
+                        <img src="static/figures/pred_2.gif" class="img" width="360">
+                    </td>
+                    <td class="item-img">
+                        <img src="static/figures/gt_2.gif" class="img" width="360">
+                    </td>
+                </tr>
+            </table>
+          </div>
+      </div>
+  </div>
+</section> -->
+
+
+
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{kim2023towards,
+        title={Towards More Practical Group Activity Detection: A New Benchmark and Model},
+        author={Kim, Dongkeun and Song, Youngkil and Cho, Minsu and Kwak, Suha},
+        journal={arXiv preprint arXiv:2312.02878},
+        year={2023},
+}</code></pre>
+  </div>
+</section> -->
+
+
+<!--
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+-->
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Website adapted from the following <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>
