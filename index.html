@@ -67,7 +67,7 @@
           <div class="column has-text-centered">
             <div class="publication-links">
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2511.03666"
+                <a href="https://arxiv.org/abs/2312.02878"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -92,63 +92,6 @@
     </div>
   </div>
 </section>
-
-
-<!-- <section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Café Dataset</h2>
-        <table class="results">
-          <tr class="item">
-              <td class="item-img">
-                  <video muted autoplay loop width="480">
-                      <source src="static/videos/PlaceA_reduced.mp4" type="video/mp4">
-                  </video>
-              </td>
-              <td>
-                  <video muted autoplay loop width="480">
-                      <source src="static/videos/PlaceB_reduced.mp4" type="video/mp4">
-                  </video>
-              </td>
-          </tr>
-          <tr class="legend"><td class="is-size-5 has-text-centered"><p class="mgb-4">Place A</p></td><td class="is-size-5 has-text-centered"><p class="mb-4">Place B</p></td></tr>
-          <tr><td class="space" colspan="2"></td></tr>
-          <tr class="item">
-            <td class="item-img">
-                <video muted autoplay loop width="480">
-                    <source src="static/videos/PlaceC_reduced.mp4" type="video/mp4">
-                </video>
-            </td>
-            <td>
-              <video muted autoplay loop width="480">
-                  <source src="static/videos/PlaceD_reduced.mp4" type="video/mp4">
-              </video>
-          </td>
-          </tr>
-          <tr class="legend"><td class="is-size-5 has-text-centered"><p class="mb-4">Place C</p></td><td class="is-size-5 has-text-centered"><p class="mb-4">Place D</p></td></tr>
-          <tr class="item">
-              <td class="item-img">
-                <video muted autoplay loop width="480">
-                    <source src="static/videos/PlaceE_reduced.mp4" type="video/mp4">
-                </video>
-            </td>
-            <td>
-                <video muted autoplay loop width="480">
-                    <source src="static/videos/PlaceF_reduced.mp4" type="video/mp4">
-                </video>
-            </td>
-          </tr>
-          <tr class="legend"><td class="is-size-5 has-text-centered"><p class="mb-4">Place E</p></td><td class="is-size-5 has-text-centered"><p class="mb-4">Place F</p></td></tr>
-        </table>
-        <p class="has-text-left">Café dataset is taken at six different cafes to capture realistic daily activities, 
-          and each of them exhibits multiple non-singleton groups performing their own activities as well as outliers, 
-          presenting more practical evaluation scenarios for GAD.</p>
-      </div>
-    </div>
-  </div>
-</section> -->
-
 
 
 <section class="section">
@@ -227,15 +170,15 @@
 </section> -->
 
 
-<!-- <section>
+<section>
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Proposed Model</h2>
         <div class="column is-vcentered">
-          <img src="static/images/overall_architecture.png" class="interpolation-image"/>
+          <img src="static/images/overall_framework.png" class="interpolation-image"/>
         </div>
-        <p class="mt-0 mb-4">(Left) Overall architecture of our model. (Right) Detailed architecture of the Grouping Transformer.</p>
+        <p class="mt-0 mb-4">Overall architecture of our model. </p>
       </div>
     </div>
     <div class="columns is-centered has-text-centered">
@@ -244,7 +187,7 @@
         <div class="column is-vcentered">
           <img src="static/images/experiments_cafe.png" class="interpolation-image"/>
         </div>
-        <p class="mt-0 mb-4 has-text-left">Quantitative results on Café. The subscripts of Group mAP mean Group IoU thresholds. 
+        <p class="mt-0 mb-4 has-text-left">Quantitative results on NVI. The subscripts of Group mAP mean Group IoU thresholds. 
           We mark the best and the second-best performance in bold and underline, respectively.</p>
       </div>
     </div>
@@ -257,79 +200,11 @@
       <div class="columns is-centered has-text-centered">
           <div class="column is-full-width">
               <h2 class="title is-3">Qualitative Results</h2>
-              <p class="mt-0 mb-4 has-text-left">Qualitative examples of prediction by our model on Café. Boxes with the same color belong to the same group.
-                All outliers are marked with teal color. Each color represents different group activity class (<i>queueing</i>: indigo, <i>ordering</i>: red, <i>eating</i>: orange, 
-                <i>working</i>: yellow, <i>fighting</i>: violet, <i>selfie</i>: pink, <i>outlier</i>: teal).
-              </p>
-              <table class="results">
-                <tr class="legend"><td class="is-size-5 has-text-centered">Input frames</td><td class="is-size-5 has-text-centered">Ours</td><td class="is-size-5 has-text-centered">Ground-truth</td></tr>
-                <tr class="item">
-                    <td class="item-img">
-                        <img src="static/figures/input_1.gif" class="img" width="360">
-                    </td>
-                    <td class="item-img">
-                        <img src="static/figures/pred_1.gif" class="img" width="360">
-                    </td>
-                    <td class="item-img">
-                        <img src="static/figures/gt_1.gif" class="img" width="360">
-                    </td>
-                </tr>
-                <tr class="item">
-                    <td class="item-img">
-                        <img src="static/figures/input_3.gif" class="img" width="360">
-                    </td>
-                    <td class="item-img">
-                        <img src="static/figures/pred_3.gif" class="img" width="360">
-                    </td>
-                    <td class="item-img">
-                        <img src="static/figures/gt_3.gif" class="img" width="360">
-                    </td>
-                </tr>
-                <tr class="item">
-                    <td class="item-img">
-                        <img src="static/figures/input_5.gif" class="img" width="360">
-                    </td>
-                    <td class="item-img">
-                        <img src="static/figures/pred_5.gif" class="img" width="360">
-                    </td>
-                    <td class="item-img">
-                        <img src="static/figures/gt_5.gif" class="img" width="360">
-                    </td>
-                </tr>
-                <tr class="item">
-                    <td class="item-img">
-                        <img src="static/figures/input_6.gif" class="img" width="360">
-                    </td>
-                    <td class="item-img">
-                        <img src="static/figures/pred_6.gif" class="img" width="360">
-                    </td>
-                    <td class="item-img">
-                        <img src="static/figures/gt_6.gif" class="img" width="360">
-                    </td>
-                </tr>
-                <tr class="item">
-                    <td class="item-img">
-                        <img src="static/figures/input_4.gif" class="img" width="360">
-                    </td>
-                    <td class="item-img">
-                        <img src="static/figures/pred_4.gif" class="img" width="360">
-                    </td>
-                    <td class="item-img">
-                        <img src="static/figures/gt_4.gif" class="img" width="360">
-                    </td>
-                </tr>
-                <tr class="item">
-                    <td class="item-img">
-                        <img src="static/figures/input_2.gif" class="img" width="360">
-                    </td>
-                    <td class="item-img">
-                        <img src="static/figures/pred_2.gif" class="img" width="360">
-                    </td>
-                    <td class="item-img">
-                        <img src="static/figures/gt_2.gif" class="img" width="360">
-                    </td>
-                </tr>
-            </table>
+              <div class="column is-vcentered">
+                <img src="static/images/qualitative_results.png" class="interpolation-image"/>
+              </div>
+              <p class="mt-0 mb-4 has-text-left">Quantitative results on NVI. The subscripts of Group mAP mean Group IoU thresholds. 
+                We mark the best and the second-best performance in bold and underline, respectively.</p>
           </div>
       </div>
   </div>
@@ -337,14 +212,14 @@
 
 
 
-<!-- <section class="section" id="BibTeX">
+<section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{kim2023towards,
-        title={Towards More Practical Group Activity Detection: A New Benchmark and Model},
-        author={Kim, Dongkeun and Song, Youngkil and Cho, Minsu and Kwak, Suha},
-        journal={arXiv preprint arXiv:2312.02878},
-        year={2023},
+    <pre><code>@article{kim2025part,
+      title={Part-Aware Bottom-Up Group Reasoning for Fine-Grained Social Interaction Detection},
+      author={Kim, Dongkeun and Cho, Minsu and Kwak, Suha},
+      journal={arXiv preprint arXiv:2511.03666},
+      year={2025},
 }</code></pre>
   </div>
 </section> -->
