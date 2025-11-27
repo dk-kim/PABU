@@ -106,13 +106,9 @@
             However, existing methods for social interaction detection overlook such nuanced cues and primarily rely on holistic representations of individuals. 
             Moreover, they directly detect social groups without explicitly modeling the underlying interactions between individuals.
             These drawbacks limit their ability to capture localized social signals and introduce ambiguity when group configurations should be inferred from social interactions grounded in nuanced cues.
-          </p>
-          <p>
             In this work, we propose a part-aware bottom-up group reasoning framework for fine-grained social interaction detection. 
             The proposed method infers social groups and their interactions using body part features and their interpersonal relations. 
             Our model first detects individuals and enhances their features using part-aware cues, and then infers group configuration by associating individuals via similarity-based reasoning, which considers not only spatial relations but also subtle social cues that signal interactions, leading to more accurate group inference. 
-          </p>
-          <p>
             Experiments on the NVI dataset demonstrate that our method outperforms prior methods, achieving the new state of the art.
           </p>
         </div>
@@ -120,54 +116,6 @@
     </div>
     <!--/ Abstract. -->
 </section>
-
-
-<!-- <section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Dataset Overview</h2>
-        <div class="column is-vcentered">
-          <img src="static/images/dataset_overview.png" class="interpolation-image"/>
-        </div>
-        <p class="mt-0 mb-4 has-text-centered">Examples of videos in Café. The videos were taken at six different places and four cameras with different viewpoints.</p>
-      </div>
-    </div>
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h3 class="title is-4">Dataset Characteristics</h3>
-        <div class="column is-vcentered">
-          <img src="static/images/dataset_table.png" class="interpolation-image"/>
-        </div>
-        <p class="mt-0 mb-4 has-text-centered">Comparison between Café and other datasets for group activity understanding.</p>
-      </div>
-    </div>
-    <h3 class="title is-4">Dataset Statistics</h3>
-    <div class="columns is-centered">
-      <div class="column">
-        <div class="content">
-          <p class="has-text-centered">(a)</p>
-          <img src="static/images/dataset_stat1.png" class="interpolation-image"/>
-        </div>
-      </div>
-      <div class="column">
-        <div class="content">
-          <p class="has-text-centered">(b)</p>
-          <img src="static/images/dataset_stat2.png" class="interpolation-image"/>
-        </div>
-      </div>
-      <div class="column">
-        <div class="content">
-          <p class="has-text-centered">(c)</p>
-          <img src="static/images/dataset_stat3.png" class="interpolation-image"/>
-        </div>
-      </div>
-    </div>
-    <p class="mt-0 mb-4 has-text-left">(a) Group population versus group size per activity class. 
-      (b) Distribution of the number of actors in each video frame.
-      (c) Comparison between Café and the other datasets in terms of group size.</p>
-  </div>
-</section> -->
 
 
 <section>
@@ -178,20 +126,32 @@
         <div class="column is-vcentered">
           <img src="static/images/overall_framework.png" class="interpolation-image"/>
         </div>
-        <p class="mt-0 mb-4">Overall architecture of our model. </p>
+        <p class="mt-0 mb-4">Overall architecture of the proposed model. Given an input image, our model first detects individuals and enhances their features using part-aware cues. 
+          Then, it infers group configuration by associating individuals via similarity-based association. 
+          Finally, triplets are constructed by associating individuals and their interactions, and NMS.</p>
       </div>
     </div>
     <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Experiments</h2>
+        <h3 class="title is-3">Comparison with state of the arts</h2>
         <div class="column is-vcentered">
           <img src="static/images/experiments_nvi.png" class="interpolation-image"/>
         </div>
-        <p class="mt-0 mb-4 has-text-left">Quantitative results on NVI. </p>
+        <p class="mt-0 mb-4 has-text-left">Comparison with the state-of-the-art methods on NVI. </p>
         <div class="column is-vcentered">
           <img src="static/images/experiments_cafe.png" class="interpolation-image"/>
         </div>
-        <p class="mt-0 mb-4 has-text-left">Quantitative results on Café. </p>
+        <p class="mt-0 mb-4 has-text-left">Comparison with the state-of-the-art methods on Café detection-based setting. </p>
+        <h3 class="title is-3">In-depth Analysis</h2>
+          <div class="column is-vcentered">
+            <img src="static/images/ablation_module.png" class="interpolation-image"/>
+          </div>
+          <p class="mt-0 mb-4 has-text-left">Impact of the proposed module.</p>
+          <div class="column is-vcentered">
+            <img src="static/images/ablation_loss.png" class="interpolation-image"/>
+          </div>
+          <p class="mt-0 mb-4 has-text-left">Impact of the loss functions.</p>
       </div>
     </div>
   </div>
@@ -203,15 +163,26 @@
       <div class="columns is-centered has-text-centered">
           <div class="column is-full-width">
               <h2 class="title is-3">Qualitative Results</h2>
+              <h3 class="title is-3">Attention Analysis</h2>
               <div class="column is-vcentered">
                 <img src="static/images/visualize_attentions.png" class="interpolation-image"/>
               </div>
-              <p class="mt-0 mb-4 has-text-left">Quantitative results on NVI. The subscripts of Group mAP mean Group IoU thresholds. 
-                We mark the best and the second-best performance in bold and underline, respectively.</p>
+              <p class="mt-0 mb-4 has-text-left">Visualizations of the cross-attention map from the individual decoder, individual embedding enhancer, and group decoder.
+                Blue and green bounding boxes indicate individuals and groups, respectively.
+                Predicted interaction labels are shown on the right.
+              </p>
+              <h3 class="title is-3">Triplet Visualization</h2>
+                <div class="column is-vcentered">
+                  <img src="static/images/visualize_triplets.png" class="interpolation-image"/>
+                </div>
+                <p class="mt-0 mb-4 has-text-left">Qualitative results of our model on the NVI test-set. The first column shows input images, and the remaining columns visualize the predicted NVI-DET triplets.
+                  Blue and green boxes denote individuals and groups, respectively. Predicted interaction labels are presented below, where wrong predictions are highlighted in red. 
+                </p>
           </div>
       </div>
   </div>
 </section>
+
 
 
 
