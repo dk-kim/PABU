@@ -126,32 +126,33 @@
         <div class="column is-vcentered">
           <img src="static/images/overall_framework.png" class="interpolation-image"/>
         </div>
-        <p class="mt-0 mb-4">Overall architecture of the proposed model. Given an input image, our model first detects individuals and enhances their features using part-aware cues. 
+        <p class="mt-0 mb-4 has-text-left">Overall architecture of the proposed model. Given an input image, our model first detects individuals and enhances their features using part-aware cues. 
           Then, it infers group configuration by associating individuals via similarity-based association. 
           Finally, triplets are constructed by associating individuals and their interactions, and NMS.</p>
       </div>
     </div>
     <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Experiments</h2>
-        <h3 class="title is-5">Comparison with state of the arts</h2>
+        <h2 class="title is-3">Quantitative Results</h2>
+        <h3 class="title is-4 has-text-left">Comparison with the state-of-the-art methods on NVI</h2>
         <div class="column is-vcentered">
           <img src="static/images/experiments_nvi.png" class="interpolation-image"/>
         </div>
-        <p class="mt-0 mb-4 has-text-left">Comparison with the state-of-the-art methods on NVI. </p>
+        <h3 class="title is-4 has-text-left">Comparison with the state-of-the-art methods on Café</h2>
         <div class="column is-vcentered">
           <img src="static/images/experiments_cafe.png" class="interpolation-image"/>
         </div>
-        <p class="mt-0 mb-4 has-text-left">Comparison with the state-of-the-art methods on Café detection-based setting. </p>
-        <h3 class="title is-5">In-depth Analysis</h2>
-          <div class="column is-vcentered">
-            <img src="static/images/ablation_module.png" class="interpolation-image"/>
+        <h3 class="title is-4 has-text-left">In-depth Analysis</h2>
+          <div class="columns is-centered">
+            <div class="column is-half has-text-centered">
+              <img src="static/images/ablation_module.png" class="interpolation-image img-medium"/>
+              <p class="figure-caption">Impact of the proposed module.</p>
+            </div>
+            <div class="column is-half has-text-centered">
+              <img src="static/images/ablation_loss.png" class="interpolation-image img-medium"/>
+              <p class="figure-caption">Impact of the loss functions.</p>
+            </div>
           </div>
-          <p class="mt-0 mb-4 has-text-left">Impact of the proposed module.</p>
-          <div class="column is-vcentered">
-            <img src="static/images/ablation_loss.png" class="interpolation-image"/>
-          </div>
-          <p class="mt-0 mb-4 has-text-left">Impact of the loss functions.</p>
       </div>
     </div>
   </div>
@@ -163,7 +164,7 @@
       <div class="columns is-centered has-text-centered">
           <div class="column is-full-width">
               <h2 class="title is-3">Qualitative Results</h2>
-              <h3 class="title is-5">Attention Analysis</h2>
+              <h3 class="title is-4 has-text-left">Attention Analysis</h2>
               <div class="column is-vcentered">
                 <img src="static/images/visualize_attentions.png" class="interpolation-image"/>
               </div>
@@ -171,7 +172,7 @@
                 Blue and green bounding boxes indicate individuals and groups, respectively.
                 Predicted interaction labels are shown on the right.
               </p>
-              <h3 class="title is-5">Triplet Visualization</h2>
+              <h3 class="title is-4 has-text-left">Triplet Visualization</h2>
                 <div class="column is-vcentered">
                   <img src="static/images/visualize_triplets.png" class="interpolation-image"/>
                 </div>
